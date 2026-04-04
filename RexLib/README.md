@@ -1,5 +1,5 @@
 # RexLib
- A Lua library to make coding easier!
+ A Lua library to make coding easier and more time efficient!
  Rexlib is a free to use, royalty free library, it is very simple to use,
  Rexlib commands look like this:
  Rexlib."commandname(--insert value if needed)"
