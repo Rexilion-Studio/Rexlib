@@ -6,7 +6,7 @@
 Rexlib Commands:
   Rexlib.inPercent(value,maxvalue)--returns a percentage
   Rexlib.cloneTable(table)--creates a clone of a table
-  Rexlib.wait(seconds)--waits a certain ammount of seconds before running more code, ussualy you want to run it in background using rexlib.runinBackground()
+  Rexlib.wait(seconds)--waits a certain ammount of seconds before running more code, ussualy you want to run it in background using rexlib.runinBackground()--runs function in background
   Rexlib.filter(table to filter,condition to check for for every filtered value)--filters table by condition
   Rexlib.repeatFunction(function to repeat,how many times to repeat)--repeats a function certain ammount of time, if set to -1 it will repeat forever
   Rexlib.removeFromTable(table to remove from,table of things to find and remove)--removes a list of values from a table
