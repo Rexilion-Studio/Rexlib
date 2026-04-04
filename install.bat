@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 REM === CONFIG ===
-set REPO_URL=https://raw.githubusercontent.com/SebCodesHere/RexLib/main/rexlib.lua
+set REPO_URL=https://raw.githubusercontent.com/Rexilion-Studio/RexLib/main/rexlib.lua
 set INSTALL_DIR=%USERPROFILE%\.rexlib
 set TARGET=%INSTALL_DIR%\rexlib.lua
 set TEMP_FILE=%TEMP%\rexlib_new.lua
