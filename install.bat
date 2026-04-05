@@ -18,7 +18,6 @@ echo.
 
 call :progressBar 5 "Initializing..."
 
-REM === CHECK CURL ===
 where curl >nul 2>nul
 if %errorlevel% neq 0 (
     echo.
@@ -27,13 +26,11 @@ if %errorlevel% neq 0 (
     exit /b
 )
 
-REM === ENSURE DIRECTORY EXISTS ===
 if not exist "%INSTALL_DIR%" (
     call :progressBar 5 "Creating installation directory..."
     mkdir "%INSTALL_DIR%"
 )
 
-REM === DOWNLOAD ===
 call :progressBar 5 "Downloading latest version..."
 curl -L -o "%TEMP_FILE%" "%REPO_URL%" >nul 2>nul
 
@@ -44,7 +41,6 @@ if %errorlevel% neq 0 (
     exit /b
 )
 
-REM === VERIFY ===
 call :progressBar 5 "Verifying files..."
 
 if exist "%TARGET%" (
@@ -68,7 +64,6 @@ if exist "%TARGET%" (
     call :progressBar 5 "Installing..."
 )
 
-REM === INSTALL NEW FILE ===
 move /Y "%TEMP_FILE%" "%TARGET%" >nul 2>nul
 
 call :progressBar 5 "Finalizing..."
@@ -84,9 +79,6 @@ echo.
 pause
 exit /b
 
-REM =========================
-REM 5-SECOND PROGRESS BAR
-REM =========================
 :progressBar
 set seconds=%~1
 set message=%~2
