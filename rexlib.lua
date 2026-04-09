@@ -139,6 +139,14 @@ function rexlib.changed(getvalueF)
      return haschangedtable
 end
 
+function rexlib.Discount(percentage,value)
+    if type(percentage) ~= "number" or type(percentage) ~= "string" then return end
+    if type(value) ~= "number" or type(value) ~= "string" then return end
+    local calc = (value/100) * percentage 
+    value = value - calc
+    return value
+end
+
 --rexlib manipulation functions
 function rexlib.clearWatchers()
     for i = #rexlib.activeWatchers, 1,-1 do
