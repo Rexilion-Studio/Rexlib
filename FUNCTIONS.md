@@ -14,6 +14,7 @@
   - Rexlib.runinBackground(function to run in background)--runs the function in a coroutine, so all other functions can continue
   - Rexlib.changed(function that is linked to checking the value,a boolean to be switched uppon value being changed)--bit more complicated, but basicly create a function that will return a value or just use rexlib.getValue, and then put that function inside this function, and it will return a table with boolean saying that the value has been changed once the value changes
   - Rexlib.getValue(Value)--returns value, usefull if you need to check value mid loop
+  - Rexlib.Discount(percentagetodiscount,thevaluetodiscount)--discounts a certain value by a percentage
 ### Rexlib Managment Comands:
   Rexlib.clearWatchers()--cleans the watcher table, essentialy nuking all current rexlib functions that rely on them, do this only if absolutely neccessary or when shutting down all rexlib funtions at once
 
