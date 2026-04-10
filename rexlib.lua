@@ -101,11 +101,10 @@ function rexlib.listTable(t)
     end
 end
 
-function rexlib.runinBackground(nameofcoroutine,f)
+function rexlib.runinBackground(f)
     if type(f) == "function" then
      local c =  coroutine.create(f)
         table.insert(rexlib.activeWatchers,c)
-        table.insert(rexlib.activeWatchers,nameofcoroutine)
         coroutine.resume(c)
         return c
     end
