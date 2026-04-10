@@ -166,6 +166,6 @@ function rexlib.removeWatcher(toremove)
 end
 
 --breathing
-debug.sethook("",100)
+debug.sethook(updatecoroutines,"",100)
 
 return rexlib
