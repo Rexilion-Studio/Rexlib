@@ -14,7 +14,13 @@ local function updatecoroutines()
     end
 end
 
-rexlib.maincoroutine = coroutine.create(updatecoroutines)
+rexlib.maincoroutine = coroutine.create(function ()
+    while true do
+        updatecoroutines()
+    end
+end)
+
+
 --rexlib functions
 function rexlib.inPercent(value,maxvalue)
     local percentage = (value/maxvalue)*100
@@ -168,6 +174,9 @@ end
 
 --breathing
 
-coroutine.resume(rexlib.maincoroutine)
+while rexlib.maincoroutine do
+    rexlib.wait(.2)
+    coroutine.resume(rexlib.maincoroutine)
+end
 
 return rexlib
