@@ -142,6 +142,8 @@ end
 function rexlib.Discount(percentage,value)
     if type(percentage) ~= "number" or type(percentage) ~= "string" then return end
     if type(value) ~= "number" or type(value) ~= "string" then return end
+    if value <=0 then return end
+    if percentage <=0 then return end
     local calc = (value/100) * percentage 
     value = value - calc
     return value
@@ -151,6 +153,14 @@ end
 function rexlib.clearWatchers()
     for i = #rexlib.activeWatchers, 1,-1 do
         table.remove(rexlib.activeWatchers,i)
+    end
+end
+
+function rexlib.removeWatcher(toremove)
+    for i,v in pairs(rexlib.activeWatchers) do
+        if toremove == v then
+            table.remove(rexlib.activeWatchers,v)
+        end
     end
 end
 
