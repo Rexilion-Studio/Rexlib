@@ -174,9 +174,12 @@ end
 
 --breathing
 
-while rexlib.maincoroutine do
-    rexlib.wait(.2)
-    coroutine.resume(rexlib.maincoroutine)
-end
+local co = coroutine.create(function ()
+    while rexlib.maincoroutine do
+        rexlib.wait(.2)
+        coroutine.resume(rexlib.maincoroutine)
+    end
+end)
+coroutine.resume(co)
 
 return rexlib
