@@ -14,13 +14,6 @@ local function updatecoroutines()
     end
 end
 
-rexlib.maincoroutine = coroutine.create(function ()
-    while true do
-        updatecoroutines()
-    end
-end)
-
-
 --rexlib functions
 function rexlib.inPercent(value,maxvalue)
     local percentage = (value/maxvalue)*100
@@ -175,9 +168,10 @@ end
 --breathing
 
 local co = coroutine.create(function ()
-    while rexlib.maincoroutine do
-        rexlib.wait(.2)
-        coroutine.resume(rexlib.maincoroutine)
+    while true do
+        for i,v in pairs(rexlib.activeWatchers) do
+            coroutine.resume(v)
+        end
     end
 end)
 coroutine.resume(co)
