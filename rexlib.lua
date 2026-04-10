@@ -8,20 +8,11 @@ local function updatecoroutines()
         local co = rexlib.activeWatchers[i]
         if coroutine.status(co) == "dead" then
             table.remove(rexlib.activeWatchers, i)
+        else
+            coroutine.resume(co)
         end
     end
 end
-
-local function runcoroutines()
-    while true do
-        for i,v in pairs(rexlib.activeWatchers) do
-            coroutine.resume(v)
-        end
-    end
-end
-
-local co = coroutine.create(updatecoroutines)
-local co2 = coroutine.create(runcoroutines)
 
 --rexlib functions
 function rexlib.inPercent(value,maxvalue)
@@ -175,7 +166,6 @@ function rexlib.removeWatcher(toremove)
 end
 
 --breathing
-coroutine.resume(co)
-coroutine.resume(co2)
+debug.sethook("",100)
 
 return rexlib
