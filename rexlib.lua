@@ -13,6 +13,8 @@ local function updatecoroutines()
         end
     end
 end
+
+rexlib.maincoroutine = coroutine.create(updatecoroutines)
 --rexlib functions
 function rexlib.inPercent(value,maxvalue)
     local percentage = (value/maxvalue)*100
@@ -165,6 +167,7 @@ function rexlib.removeWatcher(toremove)
 end
 
 --breathing
-debug.sethook(updatecoroutines, "l")
+
+coroutine.resume(rexlib.maincoroutine)
 
 return rexlib
