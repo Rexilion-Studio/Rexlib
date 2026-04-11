@@ -17,7 +17,7 @@
   - Rexlib.Discount(percentagetodiscount,thevaluetodiscount)--discounts a certain value by a percentage,numbers must be higher then 0
 ### Rexlib Managment Comands:
   Rexlib.clearWatchers()--cleans the watcher table, essentialy nuking all current rexlib functions that rely on them, DO THIS ONLY WHEN ABSOLUTE NECESSARY OR WHEN SHUTING DOWN ALL REXLIB FUNCTIONS AT ONCE
-  Rexlib.removeWatcher(watchertoremove)--removes a watcher, THIS MAY BREAK A FUNCTION THAT IS USING THE WATCHER,IF YOU DO NOT WANT IT TO BE STUCKED, IF YOU PLAN ON REMOVING A WATCHER, MAKE SURE YOU ALSO BREAK THE FUNCTION THAT IS USING IT
+  Rexlib.killWatcher(threadtothecoroutine)--removes a watcher, THIS MAY BREAK A FUNCTION THAT IS USING THE WATCHER,IF YOU DO NOT WANT IT TO BE STUCKED, IF YOU PLAN ON REMOVING A WATCHER, MAKE SURE YOU ALSO BREAK THE FUNCTION THAT IS USING IT
   Rexlib.listWatchers()--lists active watchers by printing them,also returns a table of watchers that were active when the function was listed
 
 
