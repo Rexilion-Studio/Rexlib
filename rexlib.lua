@@ -157,7 +157,7 @@ function rexlib.clearWatchers()
     end
 end
 
-function rexlib.removeWatcher(toremove)
+function rexlib.killWatcher(toremove)
     for i,v in pairs(rexlib.activeWatchers) do
         if toremove == v then
             table.remove(rexlib.activeWatchers,v)
@@ -173,7 +173,6 @@ function rexlib.listWatchers()
     end
     return actives
 end
-
 --breathing
 debug.sethook(updatecoroutines,"",1)
 
