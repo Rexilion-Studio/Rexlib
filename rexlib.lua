@@ -165,6 +165,15 @@ function rexlib.removeWatcher(toremove)
     end
 end
 
+function rexlib.listWatchers()
+    local actives = {}
+    for i,v in pairs(rexlib.activeWatchers) do
+        print(v)
+        table.insert(actives,v)
+    end
+    return actives
+end
+
 --breathing
 debug.sethook(updatecoroutines,"",1)
 
