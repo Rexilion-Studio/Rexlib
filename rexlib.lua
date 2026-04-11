@@ -53,7 +53,7 @@ function rexlib.wait(t)
 end
 
 function rexlib.filter(t,condition)
-    if type(t) ~= "table" then end
+    if type(t) ~= "table" then return end
     local metcondition = {}
     for i,v in pairs(t) do
         if condition(v) then
@@ -101,7 +101,7 @@ function rexlib.listTable(t)
     end
 end
 
-function rexlib.runinBackground(f)
+function rexlib.runinBackground(f,returnthread)
     if type(f) == "function" then
      local c =  coroutine.create(f)
         table.insert(rexlib.activeWatchers,c)
@@ -141,8 +141,8 @@ function rexlib.changed(getvalueF,returnthread)
 end
 
 function rexlib.Discount(percentage,value)
-    if type(percentage) ~= "number" or type(percentage) ~= "string" then return end
-    if type(value) ~= "number" or type(value) ~= "string" then return end
+    if type(percentage) ~= "number" then return end
+    if type(value) ~= "number" then return end
     if value <=0 then return end
     if percentage <=0 then return end
     local calc = (value/100) * percentage 
@@ -160,7 +160,7 @@ end
 function rexlib.killWatcher(toremove)
     for i,v in pairs(rexlib.activeWatchers) do
         if toremove == v then
-            table.remove(rexlib.activeWatchers,v)
+            table.remove(rexlib.activeWatchers,i)
         end
     end
 end
