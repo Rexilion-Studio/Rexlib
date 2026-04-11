@@ -12,7 +12,7 @@
   - Rexlib.removeFromTable(table to remove from,table of things to find and remove)--removes a list of values from a table
   - Rexlib.listTable(table)--prints everything inside of the table
   - Rexlib.runinBackground(function to run in background)--runs the function in a coroutine, so all other functions can continue
-  - Rexlib.changed(function that is linked to checking the value,a boolean to be switched uppon value being changed)--bit more complicated, but basicly create a function that will return a value or just use rexlib.getValue, and then put that function inside this function, and it will return a table with boolean saying that the value has been changed once the value changes
+  - Rexlib.changed(function that is linked to checking the value,returnthread-just set it to true or false, based on if you want the thread to be returned uppon completion)--bit more complicated, but basicly create a function that will return a value or just use rexlib.getValue, and then put that function inside this function, and it will return a table with boolean saying that the value has been changed once the value changes
   - Rexlib.getValue(Value)--returns value, usefull if you need to check value mid loop
   - Rexlib.Discount(percentagetodiscount,thevaluetodiscount)--discounts a certain value by a percentage,numbers must be higher then 0
 ### Rexlib Managment Comands:

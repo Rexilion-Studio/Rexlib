@@ -38,7 +38,7 @@ function rexlib.wait(t)
     if type(t) ~= "number" then return end
     local start = os.clock()
     local thread, isMain = coroutine.running()
-
+    
 
     if isMain or thread == nil then
         while (os.clock() - start) < t do
@@ -116,7 +116,7 @@ function rexlib.getValue(V)
     end
 end
 
-function rexlib.changed(getvalueF)
+function rexlib.changed(getvalueF,returnthread)
     local haschangedtable = { haschanged = false }
     local co = coroutine.create(function ()
 
@@ -137,7 +137,7 @@ function rexlib.changed(getvalueF)
 
     table.insert(rexlib.activeWatchers,co)
     coroutine.resume(co)
-     return haschangedtable
+    if not returnthread or returnthread == nil or returnthread == false then return haschangedtable else  return haschangedtable,co end
 end
 
 function rexlib.Discount(percentage,value)
