@@ -173,6 +173,15 @@ function rexlib.listWatchers()
     end
     return actives
 end
+
+function rexlib.holdBreath()
+    debug.sethook()
+end
+
+function rexlib.resumeBreath()
+    debug.sethook(updatecoroutines,"",1)
+end
+
 --breathing
 debug.sethook(updatecoroutines,"",1)
 
