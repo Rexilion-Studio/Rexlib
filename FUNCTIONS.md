@@ -21,7 +21,7 @@
   Rexlib.listWatchers()--lists active watchers by printing them,also returns a table of watchers that were active when the function was listed
   Rexlib.holdBreath()--rexlib stops breathing, stopping all functions that rely on repeated checking of watchers
   Rexlib.resumeBreath()--rexlib breathes again, you do not need to run this for rexlib to start, rexlib starts in the "breathing state"
-
+  Rexlib.setBreathInterval(interval)--changes the ammount of actions needed for rexlib to take a breath,floors interval if its float
 
 This was our first major project, we had to learn throuhg many sources such as github, Ai and other forums so this may not be perfect, but we believe it is good enough to make you save a lot of time in coding
 
