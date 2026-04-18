@@ -2,6 +2,7 @@
 local rexlib = {}
 --other important values
 rexlib.activeWatchers = {}
+rexlib.currentinterval = 1
 --other functions rexlib depends on
 local function updatecoroutines()
     for i = #rexlib.activeWatchers, 1, -1 do
@@ -101,7 +102,7 @@ function rexlib.listTable(t)
     end
 end
 
-function rexlib.runinBackground(f,returnthread)
+function rexlib.runinBackground(f)
     if type(f) == "function" then
      local c =  coroutine.create(f)
         table.insert(rexlib.activeWatchers,c)
@@ -179,10 +180,16 @@ function rexlib.holdBreath()
 end
 
 function rexlib.resumeBreath()
-    debug.sethook(updatecoroutines,"",1)
+    debug.sethook(updatecoroutines,"",rexlib.currentinterval)
+end
+
+function rexlib.setBreathInterval(interval)
+    if type(interval) ~= "number" then return end
+    rexlib.currentinterval = interval
+    debug.sethook(updatecoroutines,"",rexlib.currentinterval)
 end
 
 --breathing
-debug.sethook(updatecoroutines,"",1)
+debug.sethook(updatecoroutines,"",rexlib.currentinterval)
 
 return rexlib

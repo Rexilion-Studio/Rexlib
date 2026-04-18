@@ -6,7 +6,7 @@
  ## Rexlib Commands:
   - Rexlib.inPercent(value,maxvalue)--returns a percentage
   - Rexlib.cloneTable(table)--creates a clone of a table
-  - Rexlib.wait(seconds)--waits a certain ammount of seconds before running more code, ussualy you want to run it in background using rexlib.runinBackground()--runs function in background
+  - Rexlib.wait(seconds)--waits a certain ammount of seconds before running more code, ussualy you want to run it in background using rexlib.    runinBackground()--runs function in background
   - Rexlib.filter(table to filter,condition to check for for every filtered value)--filters table by condition
   - Rexlib.repeatFunction(function to repeat,how many times to repeat)--repeats a function certain ammount of time, if set to -1 it will repeat forever
   - Rexlib.removeFromTable(table to remove from,table of things to find and remove)--removes a list of values from a table
@@ -15,13 +15,13 @@
   - Rexlib.changed(function that is linked to checking the value,returnthread-just set it to true or false, based on if you want the thread to be returned uppon completion)--bit more complicated, but basicly create a function that will return a value or just use rexlib.getValue, and then put that function inside this function, and it will return a table with boolean saying that the value has been changed once the value changes
   - Rexlib.getValue(Value)--returns value, usefull if you need to check value mid loop
   - Rexlib.Discount(percentagetodiscount,thevaluetodiscount)--discounts a certain value by a percentage,numbers must be higher then 0
-### Rexlib Managment Comands:
+### Rexlib Managment Commands:
   Rexlib.clearWatchers()--cleans the watcher table, essentialy nuking all current rexlib functions that rely on them, DO THIS ONLY WHEN ABSOLUTE NECESSARY OR WHEN SHUTING DOWN ALL REXLIB FUNCTIONS AT ONCE
   Rexlib.killWatcher(thread)--removes a watcher, THIS MAY BREAK A FUNCTION THAT IS USING THE WATCHER,IF YOU DO NOT WANT IT TO BE STUCKED, IF YOU PLAN ON REMOVING A WATCHER, MAKE SURE YOU ALSO BREAK THE FUNCTION THAT IS USING IT
   Rexlib.listWatchers()--lists active watchers by printing them,also returns a table of watchers that were active when the function was listed
   Rexlib.holdBreath()--rexlib stops breathing, stopping all functions that rely on repeated checking of watchers
   Rexlib.resumeBreath()--rexlib breathes again, you do not need to run this for rexlib to start, rexlib starts in the "breathing state"
-
+  Rexlib.setBreathInterval(interval)--changes the ammount of actions needed for rexlib to take a breath,floors interval if its float
 
 This was our first major project, we had to learn throuhg many sources such as github, Ai and other forums so this may not be perfect, but we believe it is good enough to make you save a lot of time in coding
 
